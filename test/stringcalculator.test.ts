@@ -44,4 +44,14 @@ describe('Calculator', () => {
             expect(calculator.add('//***\n5***4')).toBe(9)
         });
     });
+
+    describe('Negative Numbers are not allowed', () => {
+        test('Throw Exception: should throw exception with negative numbers', () => {
+            expect(() => calculator.add('-1,4')).toThrow('negative numbers not allowed -1')
+        });
+        test('Throw Exception (all negative numbers): should throw exception with all negative numbers', () => {
+            expect(() => calculator.add('-1,4,-5')).toThrow('negative numbers not allowed -1,-5')
+        });
+    });
+
 })

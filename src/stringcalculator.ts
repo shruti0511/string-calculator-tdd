@@ -20,6 +20,16 @@ export class StringCalculator {
         const normalizedNumber = numbers.replace(/\n/g, delimiter);
         const arr = normalizedNumber.split(delimiter).map(num => parseInt(num.trim(), 10));
 
+        //handle negative numbers
+        this.negativeNumberValidation(arr)
+
         return arr.reduce((acc, val) => acc + val, 0)
     }
+    private negativeNumberValidation(numbers: number[]) {
+        const negativeNumbers = numbers.filter(x => x < 0)
+        if (negativeNumbers.length > 0)
+            throw new Error(`negative numbers not allowed ${negativeNumbers.join(',')}`);
+
+    }
+
 }
