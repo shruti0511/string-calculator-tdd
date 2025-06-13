@@ -3,6 +3,7 @@ export class StringCalculator {
         const DEFAULT_SEPARATOR = ',';
         const DELIMITER_PREFIX = '//';
         const NEWLINE = '\n';
+        const MaxNumber = 1000
 
         if (!input) {
             return 0
@@ -18,11 +19,11 @@ export class StringCalculator {
         }
 
         const normalizedNumber = numbers.replace(/\n/g, delimiter);
-        const arr = normalizedNumber.split(delimiter).map(num => parseInt(num.trim(), 10));
+        let arr = normalizedNumber.split(delimiter).map(num => parseInt(num.trim(), 10));
 
         //handle negative numbers
         this.negativeNumberValidation(arr)
-
+        arr = arr.filter(x => x < MaxNumber)
         return arr.reduce((acc, val) => acc + val, 0)
     }
     private negativeNumberValidation(numbers: number[]) {

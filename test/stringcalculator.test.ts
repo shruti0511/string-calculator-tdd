@@ -54,4 +54,13 @@ describe('Calculator', () => {
         });
     });
 
+    describe('Numbers bigger than 1000 should be ignored', () => {
+        test('Ignore numbers bigger than 1000: should evaluate "1000,12" to 12', () => {
+            expect(calculator.add("1000,12")).toBe(12)
+        });
+        test('Ignore all numbers bigger than 1000:  should evaluate "1000,13,1002" to 13', () => {
+            expect(calculator.add('1000,13,1002')).toBe(13)
+        });
+    });
+
 })
