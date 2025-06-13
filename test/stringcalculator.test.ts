@@ -30,4 +30,10 @@ describe('Calculator', () => {
         });
     });
 
+    describe('Mixed Separator', () => {
+        test('Newline and comma: should evaluate "5\n4,11\n2" to 22', () => {
+            expect(calculator.add('5\n4,11\n2')).toBe(22)
+        });
+    });
+
 })
