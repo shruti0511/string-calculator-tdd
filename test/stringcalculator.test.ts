@@ -36,4 +36,12 @@ describe('Calculator', () => {
         });
     });
 
+    describe('Custom Delimiter', () => {
+        test('Custom Delimiter: should evaluate "//;\n5;4" to 9', () => {
+            expect(calculator.add('//;\n5;4')).toBe(9)
+        });
+        test('Delimiter with any length: should evaluate "//***\n5***4" to 9', () => {
+            expect(calculator.add('//***\n5***4')).toBe(9)
+        });
+    });
 })
