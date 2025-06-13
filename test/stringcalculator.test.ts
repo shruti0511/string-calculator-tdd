@@ -63,4 +63,13 @@ describe('Calculator', () => {
         });
     });
 
+    describe('Multiple custom delimiters ', () => {
+        test('Multiple Custom Delimiter: should evaluate "//[;][%]\n5;2%3" to 10', () => {
+            expect(calculator.add('//[;][%]\n5;2%3')).toBe(10)
+        });
+        test('Multiple Delimiter with any length: should evaluate "//[**][%%%]\n4**2%%%3" to 9', () => {
+            expect(calculator.add('//[**][%%%]\n4**2%%%3')).toBe(9)
+        });
+    });
+
 })
