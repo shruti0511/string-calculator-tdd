@@ -12,4 +12,13 @@ describe('Calculator', () => {
         });
     });
 
+    describe('Comma Separator', () => {
+        test('Comma separated 2 numbers: should evaluate "5,4" to 9', () => {
+            expect(calculator.add("5,4")).toBe(9)
+        });
+        test('Comma separated multi values: should evaluate "5,4,11" to 20', () => {
+            expect(calculator.add('5,4,11')).toBe(20)
+        });
+    });
+
 })

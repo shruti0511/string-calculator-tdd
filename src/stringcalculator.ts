@@ -3,7 +3,8 @@ export class StringCalculator {
         if (!numbers) {
             return 0
         }
-
-        return parseInt(numbers, 10)
+        
+        const arr = numbers.split(',').map(num => parseInt(num.trim(), 10));
+        return arr.reduce((acc, val) => acc + val, 0)
     }
 }
