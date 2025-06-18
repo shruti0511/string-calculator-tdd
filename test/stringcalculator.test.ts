@@ -72,4 +72,10 @@ describe('Calculator', () => {
         });
     });
 
+    describe('Multiply values when delimiter is *',()=>{
+        test('Multiply values: shoulf evaluate "//*\n2*3" to 6', () => {
+            expect(calculator.add('//*\n2*3')).toBe(6);
+        })
+    })
+
 })
